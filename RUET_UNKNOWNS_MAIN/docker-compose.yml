@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  web:
+    build: ./django-server
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./django-server:/app/backend
+
+  react-server:
+    build: ./react-server
+    ports:
+      - "3000:3000"

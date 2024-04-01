@@ -1,0 +1,14 @@
+# Pull Base Image
+FROM node:20-alpine
+
+# Set Environment Variables
+ENV VITE_BACKEND_URL=http://localhost:8000
+
+WORKDIR /app/frontend
+
+COPY package.json /app/frontend/
+RUN npm install
+
+COPY . /app/frontend
+
+CMD ["npm", "run", "dev"]
